@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roshini Kasireddi | Data Science & Full Stack Software Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Roshini Kasireddi - Aspiring Software Engineer & Data Science Specialist skilled in React, Node.js, Python, SQL, and Machine Learning." />
+  <meta name="keywords" content="Roshini Kasireddi, Data Science, Full Stack Developer, React, Node.js, Python, Portfolio, Web Developer" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f4ff',
+              100: '#e0ebff',
+              200: '#c7dafe',
+              300: '#a4c2fd',
+              400: '#7aa0fb',
+              500: '#4f75f7',
+              600: '#3452eb',
+              700: '#263ecc',
+              800: '#2334a6',
+              900: '#213083',
+              accent: '#8b5cf6',
+              cyan: '#06b6d4',
+              emerald: '#10b981'
+            }
+          },
+          animation: {
+            'blob': 'blob 8s infinite',
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 15s linear infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300 relative overflow-x-hidden min-h-screen">
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Glowing background gradients -->
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none animate-blob"></div>
+  <div class="fixed top-1/3 right-10 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none animate-blob" style="animation-delay: 2s;"></div>
+  <div class="fixed bottom-10 left-1/3 w-96 h-96 bg-brand-cyan/15 rounded-full blur-3xl pointer-events-none animate-blob" style="animation-delay: 4s;"></div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-slate-900/80 border-b border-slate-800/80" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-accent to-brand-cyan p-0.5 shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform duration-300">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center font-bold text-lg bg-gradient-to-tr from-brand-400 to-brand-accent bg-clip-text text-transparent">
+              RK
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-400 transition-colors">Roshini Kasireddi</span>
+            <span class="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Open to Opportunities
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-1 bg-slate-800/50 p-1.5 rounded-full border border-slate-700/50 backdrop-blur-md">
+          <a href="#about" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">About</a>
+          <a href="#skills" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Skills</a>
+          <a href="#experience" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Experience</a>
+          <a href="#projects" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Projects</a>
+          <a href="#education" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Education</a>
+          <a href="#certifications" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Certifications</a>
+          <a href="#contact" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 transition-all">Contact</a>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button id="resume-modal-btn" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all shadow-sm active:scale-95">
+            <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i>
+            <span>Resume</span>
+          </button>
+          
+          <a href="#contact" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-brand-600 via-brand-accent to-brand-500 hover:from-brand-500 hover:to-brand-accent text-white shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all duration-300 active:scale-95">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Let's Talk</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 hover:text-white focus:outline-none">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-3">
+        <a href="#about" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">About</a>
+        <a href="#skills" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Skills</a>
+        <a href="#experience" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Experience</a>
+        <a href="#projects" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Projects</a>
+        <a href="#education" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Education</a>
+        <a href="#certifications" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Certifications</a>
+        <a href="#contact" class="mobile-nav-link px-4 py-2 rounded-lg text-slate-200 font-medium hover:bg-slate-800 hover:text-brand-400 transition">Contact</a>
+        <div class="pt-4 border-t border-slate-800 flex gap-3">
+          <button id="mobile-resume-btn" class="flex-1 py-2.5 rounded-xl bg-slate-800 text-center font-semibold text-slate-200 border border-slate-700 flex items-center justify-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i> View Resume
+          </button>
+          <a href="#contact" class="flex-1 py-2.5 rounded-xl bg-brand-600 text-center font-semibold text-white flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i> Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="relative z-10 pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center py-16 lg:py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column: Intro Text -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            <!-- Pill status badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-800/80 border border-brand-500/30 backdrop-blur-md shadow-inner text-xs sm:text-sm font-medium text-brand-300 animate-float">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>Available for Software & Data Science Roles</span>
+            </div>
+
+            <!-- Big Main Heading -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Hi, I'm <br class="hidden sm:inline"/>
+              <span class="bg-gradient-to-r from-brand-400 via-brand-accent to-brand-cyan bg-clip-text text-transparent">
+                Roshini Kasireddi
+              </span>
+            </h1>
+
+            <!-- Animated Typing Specialty -->
+            <div class="h-8 sm:h-10 flex items-center justify-center lg:justify-start gap-2 font-mono text-lg sm:text-xl md:text-2xl text-slate-300">
+              <span class="text-brand-400">&gt;</span>
+              <span id="typing-text" class="text-white font-semibold"></span>
+              <span class="w-2.5 h-6 bg-brand-400 inline-block animate-pulse"></span>
+            </div>
+
+            <!-- Intro paragraph -->
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              B.Tech in <strong class="text-slate-200">Data Science</strong> undergraduate at Aditya University with practical internship experience in <strong class="text-slate-200">Full Stack Web Development</strong> &amp; <strong class="text-slate-200">Data Analytics</strong>. Passionate about engineering high-performance web systems and intelligent data-driven solutions.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-accent hover:from-brand-500 hover:to-brand-600 text-white font-semibold shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center gap-2.5 group">
+                <span>Explore Projects</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+
+              <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 font-semibold border border-slate-700 hover:border-slate-500 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                <span>Get In Touch</span>
+              </a>
+
+              <button id="hero-resume-btn" class="px-5 py-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-750 hover:border-brand-500/40 transition-all duration-300 flex items-center gap-2">
+                <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i>
+                <span>Resume</span>
+              </button>
+            </div>
+
+            <!-- Quick Contacts Row -->
+            <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400">
+              <a href="mailto:kroshini106@gmail.com" class="flex items-center gap-2 hover:text-brand-400 transition-colors">
+                <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                <span>kroshini106@gmail.com</span>
+              </a>
+              <a href="tel:+917601032859" class="flex items-center gap-2 hover:text-brand-400 transition-colors">
+                <i data-lucide="phone" class="w-4 h-4 text-brand-cyan"></i>
+                <span>+91 7601032859</span>
+              </a>
+              <span class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i>
+                <span>Narsipatnam, Andhra Pradesh</span>
+              </span>
+              <a href="https://linkedin.com/in/roshini-kasireddi-42494132b" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-brand-400 hover:text-brand-300 transition-colors">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Code & Stats Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              
+              <!-- Glow halo -->
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 via-brand-accent to-brand-cyan rounded-3xl blur-xl opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+
+              <!-- Main Card -->
+              <div class="relative rounded-2xl bg-slate-900/90 border border-slate-800/90 p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
+                
+                <!-- Terminal Header -->
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                    <span class="text-xs text-slate-400 font-mono ml-2">roshini.developer.json</span>
+                  </div>
+                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-brand-950 text-brand-400 border border-brand-800/50">v2.026</span>
+                </div>
+
+                <!-- Code block preview -->
+                <div class="font-mono text-xs sm:text-sm space-y-2 text-slate-300">
+                  <p><span class="text-brand-400">const</span> <span class="text-yellow-300">engineer</span> = {</p>
+                  <p class="pl-4"><span class="text-slate-400">name:</span> <span class="text-emerald-300">"Roshini Kasireddi"</span>,</p>
+                  <p class="pl-4"><span class="text-slate-400">education:</span> <span class="text-emerald-300">"B.Tech in Data Science"</span>,</p>
+                  <p class="pl-4"><span class="text-slate-400">institution:</span> <span class="text-emerald-300">"Aditya University"</span>,</p>
+                  <p class="pl-4"><span class="text-slate-400">focusAreas:</span> [</p>
+                  <p class="pl-8 text-brand-300">"Full Stack Web (MERN/PERN)",</p>
+                  <p class="pl-8 text-brand-300">"Data Analytics & Machine Learning",</p>
+                  <p class="pl-8 text-brand-300">"RESTful APIs & Database Design"</p>
+                  <p class="pl-4">],</p>
+                  <p class="pl-4"><span class="text-slate-400">status:</span> <span class="text-emerald-400 font-semibold">"Ready to Innovate 🚀"</span></p>
+                  <p>};</p>
+                </div>
+
+                <!-- Quick Metric Counters Grid -->
+                <div class="grid grid-cols-2 gap-3 mt-6 pt-5 border-t border-slate-800">
+                  <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
+                    <div class="text-2xl font-bold bg-gradient-to-r from-brand-400 to-brand-accent bg-clip-text text-transparent">98.3%</div>
+                    <div class="text-xs text-slate-400 mt-0.5">Intermediate Top Score</div>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
+                    <div class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-brand-cyan bg-clip-text text-transparent">4+</div>
+                    <div class="text-xs text-slate-400 mt-0.5">Core Projects Built</div>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
+                    <div class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">2</div>
+                    <div class="text-xs text-slate-400 mt-0.5">Industry Internships</div>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/50 text-center">
+                    <div class="text-2xl font-bold bg-gradient-to-r from-brand-accent to-purple-400 bg-clip-text text-transparent">9+</div>
+                    <div class="text-xs text-slate-400 mt-0.5">Professional Certs</div>
+                  </div>
+                </div>
+
+                <!-- Floating Micro Badge -->
+                <div class="mt-4 flex items-center justify-between text-xs text-slate-400 px-1">
+                  <span class="flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                    Verified Credentials
+                  </span>
+                  <span class="text-brand-400">Google & Microsoft Certified</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-slate-900/60 border-y border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="user" class="w-3.5 h-3.5"></i>
+            About Me
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Bridging Software Engineering &amp; Data Intelligence
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            Dedicated to crafting resilient web architectures and extracting actionable intelligence from complex datasets.
+          </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Narrative Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="p-8 rounded-2xl bg-slate-800/40 border border-slate-700/60 space-y-5 shadow-lg backdrop-blur-sm">
+              <h3 class="text-xl font-bold text-white flex items-center gap-2.5">
+                <i data-lucide="sparkles" class="w-5 h-5 text-brand-400"></i>
+                Professional Narrative
+              </h3>
+              <p class="text-slate-300 leading-relaxed">
+                I am an aspiring software professional currently pursuing my <strong class="text-white">Bachelor of Technology in Data Science at Aditya University</strong>. With hands-on internship experience spanning full-stack development and data analysis, I enjoy solving practical challenges that require both robust backend architecture and intuitive user interfaces.
+              </p>
+              <p class="text-slate-300 leading-relaxed">
+                During my development internships, I spearheaded key modules for a <strong class="text-white">Government Hospital Management &amp; Monitoring System</strong>, implementing JWT security, RESTful endpoints with Node.js/Express, relational MySQL schemas, and reactive React.js dashboards. In parallel, my data analytics background enables me to leverage statistical methods, Python libraries (Pandas, NumPy), and Machine Learning principles to build predictive tools like skincare recommendation engines and performance diagnostic tools.
+              </p>
+              <p class="text-slate-300 leading-relaxed">
+                I thrive in fast-paced collaborative environments, embrace continuous learning, and maintain high standards for code clarity, scalability, and impact.
+              </p>
+            </div>
+
+            <!-- Key Strengths Pills -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-slate-800/30 border border-slate-800 hover:border-brand-500/40 transition-colors">
+                <div class="w-9 h-9 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-3">
+                  <i data-lucide="code-2" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Full Stack Agility</h4>
+                <p class="text-xs text-slate-400 mt-1">End-to-end web apps with React, Node.js, Express, and SQL databases.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-800/30 border border-slate-800 hover:border-brand-accent/40 transition-colors">
+                <div class="w-9 h-9 rounded-lg bg-brand-accent/10 text-brand-accent flex items-center justify-center mb-3">
+                  <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Data Insights &amp; ML</h4>
+                <p class="text-xs text-slate-400 mt-1">Extracting patterns, building recommendation models, and reporting analytics.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-800/30 border border-slate-800 hover:border-brand-cyan/40 transition-colors">
+                <div class="w-9 h-9 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center mb-3">
+                  <i data-lucide="check-circle" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Academic Excellence</h4>
+                <p class="text-xs text-slate-400 mt-1">Consistent top tier academic track record with 98.3% Intermediate.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Info & Details Column -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="p-7 rounded-2xl bg-gradient-to-b from-slate-800/70 to-slate-900/90 border border-slate-700/70 shadow-xl space-y-5">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+                <i data-lucide="badge-info" class="w-5 h-5 text-brand-cyan"></i>
+                Quick Profile Facts
+              </h3>
+
+              <ul class="space-y-3.5 text-sm">
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="user" class="w-4 h-4 text-slate-500"></i> Name:
+                  </span>
+                  <span class="font-semibold text-white text-right">Roshini Kasireddi</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-4 h-4 text-slate-500"></i> Degree:
+                  </span>
+                  <span class="font-semibold text-white text-right">B.Tech, Data Science (2024–2028)</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="building" class="w-4 h-4 text-slate-500"></i> University:
+                  </span>
+                  <span class="font-semibold text-white text-right">Aditya University, Surampalem</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-slate-500"></i> Location:
+                  </span>
+                  <span class="font-semibold text-white text-right">Narsipatnam - 531116, AP, India</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="languages" class="w-4 h-4 text-slate-500"></i> Languages:
+                  </span>
+                  <span class="font-semibold text-white text-right">Telugu (Native), English (Fluent)</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <span class="text-slate-400 flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-4 h-4 text-slate-500"></i> Employment:
+                  </span>
+                  <span class="font-semibold text-emerald-400 text-right">Open for Internships &amp; Roles</span>
+                </li>
+              </ul>
+
+              <!-- Contact Direct CTAs -->
+              <div class="pt-4 border-t border-slate-700 flex flex-col sm:flex-row gap-3">
+                <a href="mailto:kroshini106@gmail.com" class="flex-1 py-2.5 px-4 rounded-xl bg-brand-600/20 hover:bg-brand-600/30 text-brand-300 border border-brand-500/30 text-center text-xs font-semibold transition flex items-center justify-center gap-2">
+                  <i data-lucide="mail" class="w-4 h-4"></i> Email Directly
+                </a>
+                <a href="https://linkedin.com/in/roshini-kasireddi-42494132b" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-center text-xs font-semibold transition flex items-center justify-center gap-2">
+                  <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> Connect LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <!-- Soft skills highlight -->
+            <div class="p-5 rounded-2xl bg-slate-800/30 border border-slate-800 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Adaptability &amp; Problem Solving</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Quick learner with an analytical mindset, agile development discipline, and strong communication abilities.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            Technical Arsenal
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Skills &amp; Technologies
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            A comprehensive overview of programming languages, frameworks, developer tools, and analytics libraries in my toolkit.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="skill-filter-buttons">
+          <button class="skill-filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-md shadow-brand-600/30" data-filter="all">All Skills</button>
+          <button class="skill-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="programming">Languages</button>
+          <button class="skill-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="web">Web &amp; Full Stack</button>
+          <button class="skill-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="data">Data Science &amp; ML</button>
+          <button class="skill-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="tools">Databases &amp; Tools</button>
+        </div>
+
+        <!-- Skill Cards Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="skills-grid">
+          
+          <!-- Skill: Python -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming data">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="terminal" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Python</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Data &amp; Scripting</span>
+          </div>
+
+          <!-- Skill: Java -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming">
+            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="coffee" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Java</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Core &amp; JDBC</span>
+          </div>
+
+          <!-- Skill: JavaScript -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming web">
+            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="file-code" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">JavaScript (ES6+)</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Frontend &amp; Backend</span>
+          </div>
+
+          <!-- Skill: C -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="code" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">C</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Systems &amp; Logic</span>
+          </div>
+
+          <!-- Skill: C++ -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="braces" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">C++</h4>
+            <span class="text-[11px] text-slate-400 mt-1">DSA &amp; OOP</span>
+          </div>
+
+          <!-- Skill: SQL -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="programming tools">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">SQL</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Queries &amp; Relational</span>
+          </div>
+
+          <!-- Skill: React.js -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="atom" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">React.js</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Hooks &amp; Components</span>
+          </div>
+
+          <!-- Skill: Node.js -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="server" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Node.js</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Runtime &amp; Backend</span>
+          </div>
+
+          <!-- Skill: Express.js -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-slate-500/10 text-slate-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="network" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Express.js</h4>
+            <span class="text-[11px] text-slate-400 mt-1">RESTful Routing</span>
+          </div>
+
+          <!-- Skill: MySQL -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="tools web">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="hard-drive" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">MySQL</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Schema &amp; DBMS</span>
+          </div>
+
+          <!-- Skill: REST API & JWT -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="key" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">JWT &amp; REST APIs</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Auth &amp; Architecture</span>
+          </div>
+
+          <!-- Skill: React Router & Vite -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Vite &amp; Router</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Tooling &amp; SPA</span>
+          </div>
+
+          <!-- Skill: HTML5 & CSS3 -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="web">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">HTML5 &amp; CSS3</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Semantic &amp; Responsive</span>
+          </div>
+
+          <!-- Skill: Pandas -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="data">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="table" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Pandas</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Data Wrangling</span>
+          </div>
+
+          <!-- Skill: NumPy -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="data">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="binary" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">NumPy</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Numerical Arrays</span>
+          </div>
+
+          <!-- Skill: Machine Learning & Analytics -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="data">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">ML &amp; Analytics</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Algorithms &amp; Viz</span>
+          </div>
+
+          <!-- Skill: Git & GitHub -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="tools">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="git-branch" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Git &amp; GitHub</h4>
+            <span class="text-[11px] text-slate-400 mt-1">Version Control</span>
+          </div>
+
+          <!-- Skill: Postman & VS Code -->
+          <div class="skill-card p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:border-brand-500/60 hover:bg-slate-800 transition-all duration-300 group flex flex-col items-center text-center" data-category="tools">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <i data-lucide="send" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-white text-sm">Postman &amp; VS Code</h4>
+            <span class="text-[11px] text-slate-400 mt-1">API Test &amp; IDE</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="py-20 bg-slate-900/60 border-y border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+            Internship Journey
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Work Experience
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            Practical industry contributions in full stack engineering and real-world data science problems.
+          </p>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="max-w-4xl mx-auto space-y-8 relative">
+          
+          <!-- Timeline Line -->
+          <div class="hidden md:block absolute left-8 top-6 bottom-6 w-0.5 bg-gradient-to-b from-brand-500 via-brand-accent to-slate-800"></div>
+
+          <!-- Item 1: Aditya University Full Stack -->
+          <div class="relative flex flex-col md:flex-row gap-6 group">
+            
+            <!-- Timeline Icon Node -->
+            <div class="hidden md:flex w-16 h-16 rounded-2xl bg-brand-600 text-white items-center justify-center shadow-lg shadow-brand-600/30 z-10 shrink-0 border-4 border-slate-900 group-hover:scale-110 transition-transform">
+              <i data-lucide="layers" class="w-7 h-7"></i>
+            </div>
+
+            <!-- Content Card -->
+            <div class="flex-1 p-7 sm:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/70 hover:border-brand-500/60 shadow-xl backdrop-blur-sm transition-all duration-300">
+              
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-700/60 mb-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-white">Intern (Full Stack Development)</h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20">Featured</span>
+                  </div>
+                  <p class="text-brand-300 font-medium text-sm mt-0.5">Aditya University · Surampalem, IN</p>
+                </div>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 text-slate-300 text-xs font-mono border border-slate-700 self-start sm:self-auto">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-400"></i>
+                  May 2026 – Jul 2026
+                </div>
+              </div>
+
+              <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+                <p>
+                  • Spearheaded the development of a comprehensive <strong class="text-white">Full-Stack Hospital Management and Monitoring System</strong> engineered to streamline and enhance healthcare operations in government hospitals.
+                </p>
+                <p>
+                  • Built robust modules encompassing <strong class="text-white">patient registration, queue management, electronic medical records (EMR), appointment scheduling, pharmacy tracking, bed allocation, staff administration, emergency services, and healthcare analytics</strong>.
+                </p>
+                <p>
+                  • Engineered a secure RESTful API backend using <strong class="text-white">Node.js, Express.js, JWT authentication, and MySQL</strong> database architecture with optimized relational models.
+                </p>
+                <p>
+                  • Designed an interactive, responsive frontend with <strong class="text-white">React.js</strong> ensuring high usability, accessibility, and fast load times for medical and administrative staff.
+                </p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-2 pt-5 mt-4 border-t border-slate-700/50">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">React.js</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">Node.js</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">Express.js</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">MySQL</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">JWT Auth</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-brand-300 border border-slate-700 font-mono">REST APIs</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Item 2: Future Interns Data Analyst -->
+          <div class="relative flex flex-col md:flex-row gap-6 group">
+            
+            <!-- Timeline Icon Node -->
+            <div class="hidden md:flex w-16 h-16 rounded-2xl bg-brand-accent text-white items-center justify-center shadow-lg shadow-brand-accent/30 z-10 shrink-0 border-4 border-slate-900 group-hover:scale-110 transition-transform">
+              <i data-lucide="trending-up" class="w-7 h-7"></i>
+            </div>
+
+            <!-- Content Card -->
+            <div class="flex-1 p-7 sm:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/70 hover:border-brand-accent/60 shadow-xl backdrop-blur-sm transition-all duration-300">
+              
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-700/60 mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-white">Data Analyst Intern</h3>
+                  <p class="text-brand-accent font-medium text-sm mt-0.5">Future Interns</p>
+                </div>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 text-slate-300 text-xs font-mono border border-slate-700 self-start sm:self-auto">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-accent"></i>
+                  Mar 2026 – Apr 2026
+                </div>
+              </div>
+
+              <div class="space-y-3 text-slate-300 text-sm leading-relaxed">
+                <p>
+                  • Executed end-to-end Data Science &amp; Analytics tasks under a rigorous structured internship program.
+                </p>
+                <p>
+                  • Applied <strong class="text-white">data analysis, statistical visualization, exploratory data analysis (EDA), and baseline Machine Learning concepts</strong> to solve complex real-world data problems.
+                </p>
+                <p>
+                  • Gained practical hands-on experience through project deliverables and guided analytical modules, sharpening diagnostic problem-solving abilities.
+                </p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-2 pt-5 mt-4 border-t border-slate-700/50">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-purple-300 border border-slate-700 font-mono">Python</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-purple-300 border border-slate-700 font-mono">Pandas</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-purple-300 border border-slate-700 font-mono">NumPy</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-purple-300 border border-slate-700 font-mono">Data Visualization</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-xs text-purple-300 border border-slate-700 font-mono">Machine Learning</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="folder-code" class="w-3.5 h-3.5"></i>
+            Portfolio Work
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Featured Projects
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            A selection of software architectures, machine learning applications, and database systems built from scratch.
+          </p>
+        </div>
+
+        <!-- Filter tabs for projects -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="project-filters">
+          <button class="proj-filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-brand-600 text-white shadow-md shadow-brand-600/30" data-filter="all">All Projects (4)</button>
+          <button class="proj-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="fullstack">Full Stack</button>
+          <button class="proj-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="ai-data">AI &amp; Data Science</button>
+          <button class="proj-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700" data-filter="database">Database &amp; Systems</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+          
+          <!-- Project 1: Integrated Government Hospital System -->
+          <div class="project-item rounded-2xl bg-slate-800/40 border border-slate-700/60 overflow-hidden flex flex-col group hover:border-brand-500/60 transition-all duration-300 shadow-xl" data-category="fullstack">
+            <!-- Project Header Graphic / Banner -->
+            <div class="h-52 bg-gradient-to-tr from-brand-900 via-slate-800 to-brand-700 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
+              <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-brand-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Full Stack Healthcare
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-center text-brand-400">
+                  <i data-lucide="activity" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">
+                  Integrated Government Hospital Operations Monitoring System
+                </h3>
+                <p class="text-xs text-slate-300 mt-1 font-mono">React.js · Node.js · Express · MySQL · JWT</p>
+              </div>
+            </div>
+
+            <!-- Project Body -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Full-stack hospital management &amp; monitoring system to digitize government hospital workflows: patient registration, queue dispatching, EMR records, appointment scheduling, pharmacy inventory, bed allocation, emergency services, and live healthcare analytics.
+              </p>
+
+              <div class="space-y-2 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                  <span>Secure JWT Authentication &amp; Role-based access control</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                  <span>Relational schema in MySQL for high-volume transactions</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                  <span>Responsive React UI with real-time queue dashboards</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-700/50">
+                <button class="project-detail-btn text-xs font-semibold text-brand-400 hover:text-brand-300 flex items-center gap-1" data-project="hospital">
+                  <span>View Architecture Details</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+                <div class="flex gap-2">
+                  <a href="#contact" class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Inquire project demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Skin Care Recommendation System -->
+          <div class="project-item rounded-2xl bg-slate-800/40 border border-slate-700/60 overflow-hidden flex flex-col group hover:border-brand-accent/60 transition-all duration-300 shadow-xl" data-category="ai-data fullstack">
+            <!-- Project Header Graphic / Banner -->
+            <div class="h-52 bg-gradient-to-tr from-purple-950 via-slate-800 to-brand-accent/60 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
+              <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-brand-accent/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-accent/20 text-brand-accent border border-brand-accent/30 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                  AI / Recommendation Web
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-center text-brand-accent">
+                  <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                  Skin Care Recommendation System
+                </h3>
+                <p class="text-xs text-slate-300 mt-1 font-mono">React.js · Python Flask · JavaScript Fetch API</p>
+              </div>
+            </div>
+
+            <!-- Project Body -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Smart recommendation web application that analyzes user skin type, specific concerns (acne, dryness, sensitivity), and environmental factors to suggest optimal skincare ingredients and tailored routines.
+              </p>
+
+              <div class="space-y-2 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent shrink-0"></i>
+                  <span>Python Flask backend for intelligent recommendation rules</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent shrink-0"></i>
+                  <span>Dynamic React.js UI with interactive quizzes &amp; ingredient breakdown</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-accent shrink-0"></i>
+                  <span>Seamless async frontend-backend integration with Fetch API</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-700/50">
+                <button class="project-detail-btn text-xs font-semibold text-brand-accent hover:text-purple-300 flex items-center gap-1" data-project="skincare">
+                  <span>View Recommendation Engine</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+                <div class="flex gap-2">
+                  <a href="#contact" class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Inquire project demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Student Attendance Dataset Analysis -->
+          <div class="project-item rounded-2xl bg-slate-800/40 border border-slate-700/60 overflow-hidden flex flex-col group hover:border-cyan-500/60 transition-all duration-300 shadow-xl" data-category="ai-data">
+            <!-- Project Header Graphic / Banner -->
+            <div class="h-52 bg-gradient-to-tr from-cyan-950 via-slate-800 to-cyan-800/60 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
+              <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-cyan-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                  Data Analytics &amp; EDA
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-center text-cyan-400">
+                  <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  Student Attendance Dataset Analysis
+                </h3>
+                <p class="text-xs text-slate-300 mt-1 font-mono">Python · Pandas · Kaggle Datasets · Statistical Correlation</p>
+              </div>
+            </div>
+
+            <!-- Project Body -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Comprehensive data analytics study analyzing attendance habits and academic test scores from Kaggle datasets to identify key performance drivers, statistical correlations, and risk factors.
+              </p>
+
+              <div class="space-y-2 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                  <span>Processed student exam &amp; attendance records with Pandas</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                  <span>Statistical correlation analysis identifying critical drop-off thresholds</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                  <span>Actionable reporting for academic evaluation and early intervention</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-700/50">
+                <button class="project-detail-btn text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1" data-project="attendance">
+                  <span>View Analytics Methodology</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+                <div class="flex gap-2">
+                  <a href="#contact" class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Inquire project demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Student Course Registration System -->
+          <div class="project-item rounded-2xl bg-slate-800/40 border border-slate-700/60 overflow-hidden flex flex-col group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="database">
+            <!-- Project Header Graphic / Banner -->
+            <div class="h-52 bg-gradient-to-tr from-amber-950 via-slate-800 to-amber-800/60 p-6 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
+              <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-amber-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+              
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                  Database &amp; JDBC
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-center text-amber-400">
+                  <i data-lucide="database" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                  Student Course Registration System
+                </h3>
+                <p class="text-xs text-slate-300 mt-1 font-mono">Java · JDBC · MySQL · Relational Schema &amp; ERD</p>
+              </div>
+            </div>
+
+            <!-- Project Body -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Database-driven course enrollment and registration system designed with Java JDBC and SQL. Features robust validations against duplicate enrollments, capacity checks, and ACID-compliant transactional integrity.
+              </p>
+
+              <div class="space-y-2 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                  <span>Implemented full CRUD operations with parameter validation</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                  <span>Designed normalized relational ER diagrams for students &amp; courses</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                  <span>Optimized SQL queries with indexing for rapid search &amp; enrollment</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-4 border-t border-slate-700/50">
+                <button class="project-detail-btn text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1" data-project="coursereg">
+                  <span>View Database Schema Details</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+                <div class="flex gap-2">
+                  <a href="#contact" class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="Inquire project demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-20 bg-slate-900/60 border-y border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            Academic Background
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Education &amp; Academic Honors
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            A strong foundational grounding in Computer Science, Mathematics, and Data Science.
+          </p>
+        </div>
+
+        <!-- Education Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- B.Tech -->
+          <div class="p-7 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-brand-500/60 shadow-xl backdrop-blur-sm transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-xl group-hover:scale-125 transition-transform"></div>
+            
+            <div class="space-y-4 relative z-10">
+              <div class="flex items-center justify-between">
+                <span class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold">
+                  <i data-lucide="book-open" class="w-6 h-6"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-900/50 text-brand-300 border border-brand-700/50">
+                  2024 – 2028 (Pursuing)
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-brand-300 transition-colors">Bachelor of Technology</h3>
+                <p class="text-brand-400 font-medium text-sm">Data Science Specialization</p>
+                <p class="text-slate-400 text-xs mt-1">Aditya University, Surampalem</p>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Core coursework in Data Structures &amp; Algorithms, Database Systems, Machine Learning Foundations, Mathematical Statistics, Object Oriented Programming, and Full Stack Web Architecture.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-2 text-xs text-emerald-400">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span>Active Honors &amp; Leadership</span>
+            </div>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="p-7 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-emerald-500/60 shadow-xl backdrop-blur-sm transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl group-hover:scale-125 transition-transform"></div>
+            
+            <div class="space-y-4 relative z-10">
+              <div class="flex items-center justify-between">
+                <span class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                  <i data-lucide="award" class="w-6 h-6"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/70 text-emerald-300 border border-emerald-800/50">
+                  Passed 2024
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">Intermediate (MPC)</h3>
+                <p class="text-emerald-400 font-medium text-sm">Mathematics, Physics &amp; Chemistry</p>
+                <p class="text-slate-400 text-xs mt-1">Rishi Junior College</p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-center">
+                <span class="text-xs text-slate-300 block">Achieved Percentage</span>
+                <span class="text-2xl font-extrabold text-emerald-400">98.3 %</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-2 text-xs text-slate-400">
+              <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+              <span>State Top Tier Performance</span>
+            </div>
+          </div>
+
+          <!-- SSC -->
+          <div class="p-7 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-brand-accent/60 shadow-xl backdrop-blur-sm transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-xl group-hover:scale-125 transition-transform"></div>
+            
+            <div class="space-y-4 relative z-10">
+              <div class="flex items-center justify-between">
+                <span class="w-12 h-12 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold">
+                  <i data-lucide="school" class="w-6 h-6"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-950/70 text-purple-300 border border-purple-800/50">
+                  Passed 2022
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">Secondary School (SSC)</h3>
+                <p class="text-brand-accent font-medium text-sm">General Secondary Curriculum</p>
+                <p class="text-slate-400 text-xs mt-1">Sri Chaitanya Techno School</p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-purple-950/30 border border-brand-accent/30 text-center">
+                <span class="text-xs text-slate-300 block">Achieved Percentage</span>
+                <span class="text-2xl font-extrabold text-brand-accent">95.5 %</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700/50 flex items-center gap-2 text-xs text-slate-400">
+              <i data-lucide="trophy" class="w-4 h-4 text-yellow-400"></i>
+              <span>High Distinction</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            Verified Credentials
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Professional Certifications
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            Continuous upskilling backed by recognized global industry leaders and platforms.
+          </p>
+        </div>
+
+        <!-- Certifications Showcase Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Cert 1: Google Data Analytics -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-blue-500/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="line-chart" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-blue-400 font-semibold">Google</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-blue-300 transition-colors">
+                  Google Data Analytics Professional Certificate
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Comprehensive mastery of data cleaning, analysis, SQL queries, R programming basics, visualization, and decision dashboards.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Google Career</span>
+            </div>
+          </div>
+
+          <!-- Cert 2: Microsoft AI & ML -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-cyan-500/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">Microsoft</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-cyan-300 transition-colors">
+                  Microsoft AI &amp; ML Engineering Professional Certificate
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Deep dive into Artificial Intelligence architectures, Machine Learning pipelines, model evaluation, and cognitive service implementations.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Microsoft</span>
+            </div>
+          </div>
+
+          <!-- Cert 3: Infosys Springboard -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-brand-accent/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-brand-accent font-semibold">Infosys Springboard</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-purple-300 transition-colors">
+                  DBMS &amp; Python Specialization
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Rigorous industry-aligned training covering Database Management Systems (relational schema, normalization) and Python OOP paradigms.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Infosys</span>
+            </div>
+          </div>
+
+          <!-- Cert 4: Coursera - Math & Quantum -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-indigo-500/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="binary" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">Coursera</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-indigo-300 transition-colors">
+                  Mathematical Foundations &amp; Quantum Mechanics Essentials
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Linear algebra, vector spaces, probability matrices, and essential physics principles powering quantum computations.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Coursera</span>
+            </div>
+          </div>
+
+          <!-- Cert 5: Coursera - Excel for Data Analysis -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-emerald-500/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Coursera</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-emerald-300 transition-colors">
+                  Excel Basics &amp; Essentials for Data Analysis
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Pivot tables, VLOOKUP/XLOOKUP, advanced mathematical formulas, and statistical reporting data models.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Coursera</span>
+            </div>
+          </div>
+
+          <!-- Cert 6: Coursera - Agile & Data Science -->
+          <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/70 hover:border-amber-500/60 shadow-lg group transition-all duration-300 flex flex-col justify-between">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="workflow" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-semibold">Coursera Suite</span>
+                <h3 class="font-bold text-white text-base mt-0.5 group-hover:text-amber-300 transition-colors">
+                  Agile Software Engineering &amp; Data Science Fundamentals
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Scrum sprints, user stories, CI/CD methodology alongside DBMS architectural foundations and core data science theory.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+              <span class="text-emerald-400 flex items-center gap-1 font-medium"><i data-lucide="check" class="w-3.5 h-3.5"></i> Certified</span>
+              <span>Coursera</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-900/60 border-t border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-950/80 border border-brand-800/60 text-xs font-semibold uppercase tracking-wider text-brand-400">
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+            Connect &amp; Collaborate
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Let's Build Something Great Together
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            Have an opportunity, internship, or project in mind? Feel free to reach out directly or send a message.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+          
+          <!-- Direct Contact Info Card -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="p-7 rounded-2xl bg-slate-800/50 border border-slate-700/70 shadow-xl space-y-6 backdrop-blur-md">
+              <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="send" class="w-5 h-5 text-brand-400"></i>
+                Get In Touch
+              </h3>
+              <p class="text-sm text-slate-300">
+                I am actively seeking software engineering and data science roles. I respond promptly to inquiries!
+              </p>
+
+              <div class="space-y-4 text-sm">
+                
+                <!-- Email -->
+                <a href="mailto:kroshini106@gmail.com" class="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div class="overflow-hidden">
+                    <span class="text-xs text-slate-400 block font-mono">Email Address</span>
+                    <span class="text-slate-200 font-medium group-hover:text-brand-300 transition-colors truncate block">kroshini106@gmail.com</span>
+                  </div>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+917601032859" class="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-brand-cyan/50 hover:bg-slate-900 transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-slate-400 block font-mono">Phone Number</span>
+                    <span class="text-slate-200 font-medium group-hover:text-brand-cyan transition-colors">+91 7601032859</span>
+                  </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/roshini-kasireddi-42494132b" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900 transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </div>
+                  <div class="overflow-hidden">
+                    <span class="text-xs text-slate-400 block font-mono">LinkedIn Network</span>
+                    <span class="text-slate-200 font-medium group-hover:text-blue-300 transition-colors truncate block">roshini-kasireddi-42494132b</span>
+                  </div>
+                </a>
+
+                <!-- Location -->
+                <div class="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-slate-400 block font-mono">Location</span>
+                    <span class="text-slate-200 font-medium">Narsipatnam 531116, Andhra Pradesh</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="p-7 sm:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/70 shadow-xl backdrop-blur-md">
+              <h3 class="text-xl font-bold text-white mb-2">Send a Direct Message</h3>
+              <p class="text-xs sm:text-sm text-slate-400 mb-6">Fill out the quick form below to launch your email client with a pre-filled draft.</p>
+
+              <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="name" class="block text-xs font-mono font-medium text-slate-300 mb-1">Your Name *</label>
+                    <input type="text" id="name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 text-sm transition" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs font-mono font-medium text-slate-300 mb-1">Your Email *</label>
+                    <input type="email" id="email" required placeholder="e.g. john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 text-sm transition" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="subject" class="block text-xs font-mono font-medium text-slate-300 mb-1">Subject</label>
+                  <input type="text" id="subject" placeholder="e.g. Full Stack Developer Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 text-sm transition" />
+                </div>
+
+                <div>
+                  <label for="message" class="block text-xs font-mono font-medium text-slate-300 mb-1">Message *</label>
+                  <textarea id="message" rows="4" required placeholder="Hi Roshini, I came across your portfolio and would like to connect regarding..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400 text-sm transition resize-none"></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-accent hover:from-brand-500 hover:to-brand-600 text-white font-semibold shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 text-sm">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Send Message to Roshini</span>
+                  </button>
+                </div>
+
+                <p id="form-status" class="text-xs text-center text-emerald-400 hidden font-mono mt-2"></p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-300">Roshini Kasireddi</span>
+        <span>•</span>
+        <span>Data Science &amp; Full Stack Software Developer</span>
+      </div>
+      <p>© 2026 Roshini Kasireddi. Crafted with precision &amp; modern web standards.</p>
+      <div class="flex items-center gap-4">
+        <a href="#hero" class="text-slate-400 hover:text-white transition">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col animate-float">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 bg-slate-800 border-b border-slate-700 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-400"></i>
+          <h3 class="font-bold text-white text-base sm:text-lg">Roshini Kasireddi — Resume Preview</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="print-resume-btn" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button id="close-modal-btn" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body / Resume Document -->
+      <div class="p-6 sm:p-8 overflow-y-auto bg-white text-slate-800 space-y-6 font-sans text-sm printable-resume">
+        
+        <!-- Header -->
+        <div class="border-b-2 border-brand-600 pb-4">
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-brand-700 tracking-wide uppercase">ROSHINI KASIREDDI</h1>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600 mt-2">
+            <span>✉ kroshini106@gmail.com</span>
+            <span>📱 +91 7601032859</span>
+            <span>📍 Narsipatnam 531116, AP</span>
+            <span>🔗 linkedin.com/in/roshini-kasireddi-42494132b</span>
+          </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-2">Professional Summary</h2>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            Aspiring software professional currently pursuing a Bachelor's degree in Data Science, with hands-on internship experience and a strong passion for learning and innovation. Possess a proactive attitude, excellent problem-solving abilities, and the adaptability to thrive in dynamic environments. Seeking an opportunity to contribute to organizational success while building a rewarding career in software development.
+          </p>
+        </div>
+
+        <!-- Work Experience -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-3">Work Experience</h2>
+          
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-baseline font-bold text-xs text-slate-900">
+                <span>Intern (Full Stack Development) — Aditya University</span>
+                <span class="font-normal text-slate-500">May 2026 – Jul 2026 · Surampalem, IN</span>
+              </div>
+              <ul class="list-disc list-inside text-xs text-slate-700 mt-1 space-y-1">
+                <li>Developed full-stack hospital management and monitoring system to enhance healthcare operations in government hospitals.</li>
+                <li>Built features: patient registration, queue management, electronic medical records (EMR), appointment scheduling, pharmacy management, bed allocation, staff administration, emergency services, and healthcare analytics.</li>
+                <li>Engineered secure RESTful backend with Node.js, Express.js, JWT authentication, and MySQL; created responsive React-based frontend.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-baseline font-bold text-xs text-slate-900">
+                <span>Data Analyst Intern — Future Interns</span>
+                <span class="font-normal text-slate-500">Mar 2026 – Apr 2026</span>
+              </div>
+              <ul class="list-disc list-inside text-xs text-slate-700 mt-1 space-y-1">
+                <li>Worked on Data Science &amp; Analytics tasks under a structured internship program.</li>
+                <li>Applied data analysis, visualization, and ML concepts to real-world problems.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-2">Education</h2>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between font-semibold text-slate-900">
+              <span>Bachelor of Technology, Data Science — Aditya University</span>
+              <span class="text-slate-500">2028</span>
+            </div>
+            <div class="flex justify-between text-slate-700">
+              <span>Intermediate: MPC — Rishi Junior College (Percentage: 98.3%)</span>
+              <span class="text-slate-500">2024</span>
+            </div>
+            <div class="flex justify-between text-slate-700">
+              <span>SSC — Sri Chaitanya Techno School (Percentage: 95.5%)</span>
+              <span class="text-slate-500">2022</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-3">Key Projects</h2>
+          
+          <div class="space-y-3 text-xs">
+            <div>
+              <h3 class="font-bold text-slate-900">Integrated Government Hospital Operations Monitoring System</h3>
+              <p class="text-slate-700">Built full-stack healthcare workflow system with React, Node.js, Express, MySQL, JWT authentication, and administrative analytics.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900">Skin Care Recommendation System</h3>
+              <p class="text-slate-700">Web application recommending skincare ingredients based on skin type and concerns; built with React.js frontend, Flask backend, and Fetch API.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900">Student Course Registration System</h3>
+              <p class="text-slate-700">Database-driven course enrollment system using JDBC and SQL with validation rules avoiding duplicate registrations and normalized ER schemas.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900">Student Attendance Dataset Analysis</h3>
+              <p class="text-slate-700">Analyzed Kaggle performance and attendance datasets using Python and Pandas to identify academic trends and drop-off risks.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-2">Technical Skills &amp; Tools</h2>
+          <p class="text-xs text-slate-700 leading-relaxed">
+            <strong>Languages:</strong> Java, Python, C, C++, JavaScript, SQL<br/>
+            <strong>Web &amp; Backend:</strong> React.js, HTML5, CSS3, React Router DOM, Vite, Node.js, Express.js, REST API Development, JWT Authentication, MySQL<br/>
+            <strong>Data Science:</strong> Pandas, NumPy, Machine Learning Concepts<br/>
+            <strong>Tools &amp; Languages:</strong> Git, GitHub, Postman, VS Code | Telugu (Native), English (Fluent)
+          </p>
+        </div>
+
+        <!-- Certifications -->
+        <div>
+          <h2 class="text-xs font-bold font-mono tracking-wider text-brand-700 uppercase border-b border-slate-200 pb-1 mb-2">Certifications</h2>
+          <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5">
+            <li>Google Data Analytics Professional Certificate</li>
+            <li>Microsoft AI &amp; ML Engineering Professional Certificate</li>
+            <li>Infosys Springboard Certifications in DBMS &amp; Python</li>
+            <li>Coursera: Mathematical Foundations &amp; Quantum Mechanics, Excel Data Analysis, Agile Software Engineering, DBMS, Fundamentals of Data Science</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- PROJECT ARCHITECTURE MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-5 bg-slate-800 border-b border-slate-700 flex items-center justify-between">
+        <h3 id="modal-project-title" class="font-bold text-white text-lg">Project Details</h3>
+        <button id="close-project-modal-btn" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modal-project-body" class="p-6 overflow-y-auto space-y-4 text-sm text-slate-300">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-850 border-t border-slate-800 flex justify-end gap-3">
+        <button id="close-project-modal-footer-btn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold">Close</button>
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i> Discuss Project
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
