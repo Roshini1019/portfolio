@@ -171,7 +171,35 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // 5. PROJECT DETAILS MODAL & DATA
+  // 5. CERTIFICATE FILTERING SYSTEM
+  const certFilterBtns = document.querySelectorAll('.cert-filter-btn');
+  const certCards = document.querySelectorAll('.cert-card');
+
+  certFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      certFilterBtns.forEach(b => {
+        b.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-600/30', 'active');
+        b.classList.add('bg-slate-800', 'text-slate-300');
+      });
+
+      btn.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-600/30', 'active');
+      btn.classList.remove('bg-slate-800', 'text-slate-300');
+
+      const filter = btn.getAttribute('data-filter');
+
+      certCards.forEach(card => {
+        const categories = card.getAttribute('data-category') || '';
+        if (filter === 'all' || categories.includes(filter)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
+  // 6. PROJECT DETAILS MODAL & DATA
   const projectDetails = {
     hospital: {
       title: "Integrated Government Hospital Operations Monitoring System",
@@ -303,7 +331,180 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 6. RESUME MODAL & PRINT HANDLER
+  // 7. CERTIFICATE SOFT COPY PREVIEW MODAL & DATA
+  const certificateData = {
+    'google-da': {
+      title: "Google Data Analytics Professional Certificate",
+      issuer: "Google Career Certificates",
+      badgeColor: "border-blue-500 bg-blue-950/40 text-blue-400",
+      skills: ["Data Cleaning", "SQL Queries", "R Programming", "Data Visualizations", "Tableau", "Decision Dashboards"],
+      overview: "Comprehensive 8-course professional credential validated by Google covering data ecosystems, data wrangling, spreadsheet analysis, SQL transformations, R programming, and data presentation.",
+      fileSlot: "assets/certificates/google_data_analytics.pdf"
+    },
+    'msft-aiml': {
+      title: "Microsoft AI & ML Engineering Professional Certificate",
+      issuer: "Microsoft",
+      badgeColor: "border-cyan-500 bg-cyan-950/40 text-cyan-400",
+      skills: ["Machine Learning Pipelines", "AI Workloads", "Model Evaluation", "Cognitive Services", "Azure AI Solutions"],
+      overview: "Professional specialization validating mastery in implementing machine learning models, computer vision, natural language processing, and scalable cognitive AI pipelines.",
+      fileSlot: "assets/certificates/microsoft_ai_ml.pdf"
+    },
+    'infosys-dbms': {
+      title: "Database Management Systems (DBMS) Certification",
+      issuer: "Infosys Springboard",
+      badgeColor: "border-purple-500 bg-purple-950/40 text-purple-400",
+      skills: ["Relational Algebra", "SQL Queries", "Normalization (1NF-3NF)", "ER Modeling", "Transaction ACID"],
+      overview: "Industry-aligned DBMS certification from Infosys demonstrating excellence in database architecture, normalized schema design, complex multi-table joins, and query optimization.",
+      fileSlot: "assets/certificates/infosys_dbms.pdf"
+    },
+    'infosys-python': {
+      title: "Programming Fundamentals with Python & OOP",
+      issuer: "Infosys Springboard",
+      badgeColor: "border-amber-500 bg-amber-950/40 text-amber-400",
+      skills: ["Python 3", "Object-Oriented Programming", "Data Structures", "Algorithms", "Modular Code Design"],
+      overview: "Rigorous certification covering core programming fundamentals, object-oriented concepts, algorithms, exception handling, and real-world Python problem solving.",
+      fileSlot: "assets/certificates/infosys_python.pdf"
+    },
+    'coursera-quantum': {
+      title: "Mathematical Foundations and Quantum Mechanics Essentials",
+      issuer: "Coursera",
+      badgeColor: "border-indigo-500 bg-indigo-950/40 text-indigo-400",
+      skills: ["Linear Algebra", "Vector Spaces", "Probability Matrices", "Complex Numbers", "Quantum Operators"],
+      overview: "Rigorous mathematical curriculum establishing algebraic, statistical, and quantum physical principles underlying high-level computation.",
+      fileSlot: "assets/certificates/coursera_quantum_math.pdf"
+    },
+    'coursera-excel-basics': {
+      title: "Excel Basics for Data Analysis",
+      issuer: "Coursera",
+      badgeColor: "border-emerald-500 bg-emerald-950/40 text-emerald-400",
+      skills: ["Spreadsheet Navigation", "Data Cleaning", "Sorting & Filtering", "Basic Aggregations", "Table Formatting"],
+      overview: "Foundational training in data preparation, spreadsheet manipulation, formula calculation, and statistical table preparation for business analytics.",
+      fileSlot: "assets/certificates/coursera_excel_basics.pdf"
+    },
+    'coursera-excel-essentials': {
+      title: "Excel Essentials for Data Analysis",
+      issuer: "Coursera",
+      badgeColor: "border-teal-500 bg-teal-950/40 text-teal-400",
+      skills: ["Pivot Tables", "VLOOKUP & XLOOKUP", "Logical Formulas", "Data Validation", "Statistical Charts"],
+      overview: "Advanced spreadsheet modeling covering nested functions, dynamic lookups, automated reporting dashboards, and visual metric representation.",
+      fileSlot: "assets/certificates/coursera_excel_essentials.pdf"
+    },
+    'coursera-agile': {
+      title: "Agile Software Engineering",
+      issuer: "Coursera",
+      badgeColor: "border-amber-500 bg-amber-950/40 text-amber-400",
+      skills: ["Scrum Methodology", "Sprint Ceremonies", "User Stories", "CI/CD Foundations", "Test-Driven Dev"],
+      overview: "Modern software development lifecycles, agile team practices, sprint backlog management, and continuous integration paradigms.",
+      fileSlot: "assets/certificates/coursera_agile.pdf"
+    },
+    'coursera-dbms': {
+      title: "Database Management Systems (DBMS)",
+      issuer: "Coursera",
+      badgeColor: "border-blue-500 bg-blue-950/40 text-blue-400",
+      skills: ["DDL & DML SQL", "Relational Constraints", "Database Indexing", "Concurrency Control", "Schema Security"],
+      overview: "Comprehensive study in enterprise database system design, transactional integrity, relational schemas, and constraint management.",
+      fileSlot: "assets/certificates/coursera_dbms.pdf"
+    },
+    'coursera-ds-fundamentals': {
+      title: "Fundamentals of Data Science",
+      issuer: "Coursera",
+      badgeColor: "border-purple-500 bg-purple-950/40 text-purple-400",
+      skills: ["Exploratory Data Analysis", "Statistical Inference", "Predictive Modeling", "Feature Selection", "Model Metrics"],
+      overview: "Core principles of the data science workflow from problem formulation and feature engineering to statistical hypothesis testing and performance evaluation.",
+      fileSlot: "assets/certificates/coursera_data_science_fundamentals.pdf"
+    }
+  };
+
+  const certModal = document.getElementById('cert-modal');
+  const modalCertTitle = document.getElementById('modal-cert-title');
+  const modalCertIssuer = document.getElementById('modal-cert-issuer');
+  const modalCertBody = document.getElementById('modal-cert-body');
+  const closeCertBtn = document.getElementById('close-cert-modal-btn');
+  const closeCertFooterBtn = document.getElementById('close-cert-modal-footer-btn');
+
+  document.querySelectorAll('.cert-preview-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const certKey = btn.getAttribute('data-cert');
+      const cert = certificateData[certKey];
+      if (cert) {
+        modalCertTitle.textContent = cert.title;
+        modalCertIssuer.textContent = `Issuer: ${cert.issuer} · Verified Credential`;
+
+        const skillsPills = cert.skills.map(s => 
+          `<span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs text-brand-300 border border-slate-700 font-mono">${s}</span>`
+        ).join('');
+
+        modalCertBody.innerHTML = `
+          <!-- Digital Verified Certificate Card -->
+          <div class="relative rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 p-6 sm:p-8 border-2 border-slate-700 shadow-2xl text-center space-y-6">
+            
+            <!-- Watermark / Background Badge -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+              <i data-lucide="award" class="w-64 h-64"></i>
+            </div>
+
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+              <span class="text-xs font-mono px-3 py-1 rounded-full ${cert.badgeColor} border font-semibold">
+                ${cert.issuer}
+              </span>
+              <span class="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> ID: RK-${certKey.toUpperCase()}-VERIFIED
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <p class="text-xs font-mono uppercase tracking-widest text-slate-400">This certifies that</p>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">ROSHINI KASIREDDI</h2>
+              <p class="text-xs text-slate-300">has successfully demonstrated proficiency and completed all curriculum criteria for</p>
+              <h3 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-brand-300 via-brand-accent to-brand-cyan bg-clip-text text-transparent mt-2">
+                ${cert.title}
+              </h3>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 text-left space-y-2">
+              <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Curriculum &amp; Competencies Validated:</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">${cert.overview}</p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                ${skillsPills}
+              </div>
+            </div>
+
+            <!-- Soft Copy File Link / Instruction Notice -->
+            <div class="p-4 rounded-xl bg-brand-950/40 border border-brand-800/40 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <span class="text-xs font-bold text-white block">Official Soft Copy File Path:</span>
+                <span class="text-xs font-mono text-brand-300">${cert.fileSlot}</span>
+              </div>
+              <a href="${cert.fileSlot}" target="_blank" class="px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5 transition">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Full Document
+              </a>
+            </div>
+
+          </div>
+        `;
+
+        certModal.classList.remove('hidden');
+        certModal.classList.add('flex');
+        if (window.lucide) lucide.createIcons();
+      }
+    });
+  });
+
+  const closeCertModal = () => {
+    certModal.classList.add('hidden');
+    certModal.classList.remove('flex');
+  };
+
+  if (closeCertBtn) closeCertBtn.addEventListener('click', closeCertModal);
+  if (closeCertFooterBtn) closeCertFooterBtn.addEventListener('click', closeCertModal);
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+  }
+
+
+  // 8. RESUME MODAL & PRINT HANDLER
   const resumeModal = document.getElementById('resume-modal');
   const resumeBtns = [
     document.getElementById('resume-modal-btn'),
@@ -340,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 7. MOBILE NAVIGATION MENU
+  // 9. MOBILE NAVIGATION MENU
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -357,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 8. CONTACT FORM SUBMISSION
+  // 10. CONTACT FORM SUBMISSION
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
@@ -385,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // 9. SCROLL SPY ACTIVE LINK HIGHLIGHTER
+  // 11. SCROLL SPY ACTIVE LINK HIGHLIGHTER
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
