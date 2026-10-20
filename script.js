@@ -4,50 +4,7 @@
 
 const initializePortfolio = () => {
   
-  // 1. TYPING TEXT ANIMATION
-  const typingElement = document.getElementById('typing-text');
-  const roles = [
-    "Full Stack Software Developer",
-    "B.Tech Data Science Specialist",
-    "React.js & Node.js Architect",
-    "Machine Learning & Data Analyst",
-    "Database & REST API Engineer"
-  ];
-  
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 90;
-
-  function typeEffect() {
-    if (!typingElement) return;
-    const currentRole = roles[roleIndex];
-    
-    if (isDeleting) {
-      typingElement.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 40;
-    } else {
-      typingElement.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 90;
-    }
-
-    if (!isDeleting && charIndex === currentRole.length) {
-      isDeleting = true;
-      typingSpeed = 1800; // Pause at end of text
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 400; // Pause before typing new word
-    }
-
-    setTimeout(typeEffect, typingSpeed);
-  }
-  typeEffect();
-
-
-  // 2. INTERACTIVE PARTICLES CANVAS
+  // 1. INTERACTIVE PARTICLES CANVAS
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
