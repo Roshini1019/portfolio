@@ -32,10 +32,11 @@ A modern, responsive, high-performance portfolio website for **Roshini Kasireddi
    - **B.Tech Data Science (2024–2028)** @ Aditya University
    - **Intermediate (MPC)** @ Rishi Junior College — **98.3%**
    - **SSC** @ Sri Chaitanya Techno School — **95.5%**
-   - Verified Certifications from **Google**, **Microsoft**, **Infosys Springboard**, and **Coursera**.
+   - **34 priority-ranked certificates and achievements**, with certificate previews, category filters, and clickable original soft copies.
+   - Certificate images and documents are stored in `assets/certificates/`; run `python generate_certs_data.py` to regenerate the browser data after updating the certificate list.
 
 7. **Resume Preview & Print/PDF Exporter**:
-   - One-click clean, print-formatted resume viewer ready for PDF download or immediate printing.
+   - One-click clean, print-formatted resume viewer with a downloadable updated resume PDF at `assets/resume/ROSHINI_KASIREDDI_CV.pdf`.
 
 8. **Direct Contact Form & Prepopulated Email Launcher**:
    - Quick form to dispatch inquiries directly to `kroshini106@gmail.com`.
