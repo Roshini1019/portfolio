@@ -2,7 +2,7 @@
  * Roshini Kasireddi Portfolio - Interactive JavaScript Engine
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+const initializePortfolio = () => {
   
   // 1. TYPING TEXT ANIMATION
   const typingElement = document.getElementById('typing-text');
@@ -583,4 +583,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializePortfolio, { once: true });
+} else {
+  initializePortfolio();
+}
